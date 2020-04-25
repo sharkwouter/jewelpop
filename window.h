@@ -9,7 +9,7 @@ public:
     ~Window();
 
     void handleEvents();
-    void draw();
+    void clear();
     inline bool isClosed() const { return _closed; }
 
 private:
@@ -22,8 +22,12 @@ private:
 
     bool _closed = false;
 
+    SDL_Color _backgoundColor{255, 255,255, 255};
+
     SDL_Event _event;
 
     SDL_Window * _window = nullptr;
+
+protected:
     SDL_Renderer * _renderer = nullptr;
 };

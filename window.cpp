@@ -1,3 +1,6 @@
+#ifndef BREAKDOWN_WINDOW_H
+#define BREAKDOWN_WINDOW_H
+
 #include "window.h"
 
 Window::Window(const std::string &title, int width, int height) :
@@ -14,7 +17,7 @@ Window::~Window() {
 
 bool Window::init() {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        SDL_LogError(1, "Failed to initialize initialize SDL. Error: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to initialize initialize SDL. Error: %s", SDL_GetError());
         return false;
     }
 
@@ -28,13 +31,13 @@ bool Window::init() {
     );
 
     if (_window == nullptr) {
-        SDL_LogError(1, "Failed to initiation window. Error %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to initiation window. Error %s", SDL_GetError());
         return false;
     }
 
     _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (_renderer == nullptr) {
-        SDL_LogError(1, "Failed to initialize renderer. Error: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to initialize renderer. Error: %s", SDL_GetError());
         return false;
     }
 
@@ -48,21 +51,21 @@ void Window::handleEvents() {
             case SDL_QUIT:
                 _closed = true;
                 break;
+            case SDL_KEYDOWN:
+                switch (_event.key.keysym.sym) {
+                    case SDLK_ESCAPE:
+                        _closed = true;
+                        break;
+                }
+                break;
         }
     }
 }
 
-void Window::draw() {
-    SDL_SetRenderDrawColor(_renderer, 0, 0, 200, 255);
-    SDL_RenderClear(_renderer);
-
-    SDL_Rect rect;
-    rect.w = 120;
-    rect.h = 120;
-    rect.x = 400;
-    rect.y = 300;
-    SDL_SetRenderDrawColor(_renderer, 200, 0, 200, 255);
-    SDL_RenderFillRect(_renderer, &rect);
-
+void Window::clear() {
     SDL_RenderPresent(_renderer);
+    SDL_SetRenderDrawColor(_renderer, _backgoundColor.r, _backgoundColor.g, _backgoundColor.b, _backgoundColor.a);
+    SDL_RenderClear(_renderer);
 }
+
+#endif //BREAKDOWN_WINDOW_H
