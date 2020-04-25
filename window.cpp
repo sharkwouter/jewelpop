@@ -45,14 +45,14 @@ bool Window::init() {
 }
 
 
-void Window::handleEvents() {
-    if (SDL_PollEvent(&_event)) {
-        switch (_event.type) {
+void Window::handleEvents(SDL_Event &event) {
+    if (SDL_PollEvent(&event)) {
+        switch (event.type) {
             case SDL_QUIT:
                 _closed = true;
                 break;
             case SDL_KEYDOWN:
-                switch (_event.key.keysym.sym) {
+                switch (event.key.keysym.sym) {
                     case SDLK_ESCAPE:
                         _closed = true;
                         break;

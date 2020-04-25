@@ -13,6 +13,7 @@ public:
     Rect(const Window &window, int x, int y, int width, int height, SDL_Color color);
     ~Rect();
     void draw() const;
+    void handleEvents(SDL_Event &event);
 
 private:
     int _x;
@@ -21,7 +22,6 @@ private:
     int _height;
     SDL_Color _color;
     SDL_Rect _rect;
-
 };
 
 
