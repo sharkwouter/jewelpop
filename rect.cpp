@@ -2,7 +2,7 @@
 // Created by wouter on 4/25/20.
 //
 
-#include "rect.h"
+#include "rect.hpp"
 
 Rect::Rect(int x, int y, int width, int height, SDL_Color color) :
  _color(color)

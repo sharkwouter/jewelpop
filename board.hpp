@@ -6,8 +6,8 @@
 #define BREAKDOWN_BOARD_HPP
 
 #include <SDL2/SDL.h>
-#include "window.h"
-#include "rect.h"
+#include "window.hpp"
+#include "rect.hpp"
 
 class Board {
 public:

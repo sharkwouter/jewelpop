@@ -6,7 +6,7 @@
 #define BREAKDOWN_RECT_H
 
 #include <SDL2/SDL.h>
-#include "window.h"
+#include "window.hpp"
 
 class Rect{
 public:

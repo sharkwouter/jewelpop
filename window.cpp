@@ -1,7 +1,7 @@
 #ifndef BREAKDOWN_WINDOW_H
 #define BREAKDOWN_WINDOW_H
 
-#include "window.h"
+#include "window.hpp"
 
 SDL_Renderer *Window::renderer = nullptr;
 

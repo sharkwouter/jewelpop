@@ -1,5 +1,5 @@
-#include "window.h"
-#include "rect.h"
+#include "window.hpp"
+#include "rect.hpp"
 #include "board.hpp"
 
 #define GAME "test"
