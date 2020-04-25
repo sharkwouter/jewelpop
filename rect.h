@@ -8,18 +8,15 @@
 #include <SDL2/SDL.h>
 #include "window.h"
 
-class Rect : public Window {
+class Rect{
 public:
-    Rect(const Window &window, int x, int y, int width, int height, SDL_Color color);
+    Rect();
+    Rect(int x, int y, int width, int height, SDL_Color color);
     ~Rect();
     void draw() const;
     void handleEvents(SDL_Event &event);
 
 private:
-    int _x;
-    int _y;
-    int _width;
-    int _height;
     SDL_Color _color;
     SDL_Rect _rect;
 };

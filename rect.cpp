@@ -4,8 +4,8 @@
 
 #include "rect.h"
 
-Rect::Rect(const Window &window, int x, int y, int width, int height, SDL_Color color) :
-Window(window), _color(color)
+Rect::Rect(int x, int y, int width, int height, SDL_Color color) :
+ _color(color)
 {
     _rect.x = x;
     _rect.y = y;
@@ -39,6 +39,10 @@ void Rect::handleEvents(SDL_Event &event) {
 }
 
 void Rect::draw() const {
-    SDL_SetRenderDrawColor(_renderer, _color.r, _color.g, _color.b, _color.a);
-    SDL_RenderFillRect(_renderer, &_rect);
+    SDL_SetRenderDrawColor(Window::renderer, _color.r, _color.g, _color.b, _color.a);
+    SDL_RenderFillRect(Window::renderer, &_rect);
+}
+
+Rect::Rect() {
+
 }

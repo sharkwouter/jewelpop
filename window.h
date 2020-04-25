@@ -15,6 +15,9 @@ public:
 private:
     bool init();
 
+public:
+    static SDL_Renderer * renderer;
+
 private:
     std::string _title;
     int _width = 800;
@@ -25,7 +28,4 @@ private:
     SDL_Color _backgoundColor{255, 255,255, 255};
 
     SDL_Window * _window = nullptr;
-
-protected:
-    SDL_Renderer * _renderer = nullptr;
 };

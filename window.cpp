@@ -3,6 +3,8 @@
 
 #include "window.h"
 
+SDL_Renderer *Window::renderer = nullptr;
+
 Window::Window(const std::string &title, int width, int height) :
 _title(title), _width(width), _height(height)
 {
@@ -10,12 +12,13 @@ _title(title), _width(width), _height(height)
 }
 
 Window::~Window() {
-    SDL_DestroyRenderer(_renderer);
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(_window);
     SDL_Quit();
 }
 
 bool Window::init() {
+
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to initialize initialize SDL. Error: %s", SDL_GetError());
         return false;
@@ -35,8 +38,8 @@ bool Window::init() {
         return false;
     }
 
-    _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if (_renderer == nullptr) {
+    Window::renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if (renderer == nullptr) {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to initialize renderer. Error: %s", SDL_GetError());
         return false;
     }
@@ -63,9 +66,9 @@ void Window::handleEvents(SDL_Event &event) {
 }
 
 void Window::clear() {
-    SDL_RenderPresent(_renderer);
-    SDL_SetRenderDrawColor(_renderer, _backgoundColor.r, _backgoundColor.g, _backgoundColor.b, _backgoundColor.a);
-    SDL_RenderClear(_renderer);
+    SDL_RenderPresent(renderer);
+    SDL_SetRenderDrawColor(renderer, _backgoundColor.r, _backgoundColor.g, _backgoundColor.b, _backgoundColor.a);
+    SDL_RenderClear(renderer);
 }
 
 #endif //BREAKDOWN_WINDOW_H
