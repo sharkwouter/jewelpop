@@ -1,6 +1,3 @@
-#ifndef BREAKDOWN_WINDOW_H
-#define BREAKDOWN_WINDOW_H
-
 #include "window.hpp"
 
 SDL_Renderer *Window::renderer = nullptr;
@@ -68,5 +65,3 @@ void Window::clear() {
     SDL_SetRenderDrawColor(renderer, _backgoundColor.r, _backgoundColor.g, _backgoundColor.b, _backgoundColor.a);
     SDL_RenderClear(renderer);
 }
-
-#endif //BREAKDOWN_WINDOW_H
