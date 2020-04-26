@@ -49,7 +49,6 @@ bool Window::init() {
 
 
 void Window::handleEvents(SDL_Event &event) {
-    if (SDL_PollEvent(&event)) {
         switch (event.type) {
             case SDL_QUIT:
                 _closed = true;
@@ -62,7 +61,6 @@ void Window::handleEvents(SDL_Event &event) {
                 }
                 break;
         }
-    }
 }
 
 void Window::clear() {

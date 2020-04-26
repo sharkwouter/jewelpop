@@ -6,27 +6,34 @@
 #define BREAKDOWN_BOARD_HPP
 
 #include <SDL2/SDL.h>
+#include "constants.hpp"
 #include "window.hpp"
 #include "rect.hpp"
+#include "jewels.hpp"
 
 class Board {
 public:
-    Board(int blockSize, int width, int height, int offset_x, int offset_y);
+    Board();
     ~Board();
 
     void draw();
+    void setBoardMeasurements();
+    void handleEvents(SDL_Event &event);
 
 private:
-    int _blockSize;
-    int _width;
-    int _height;
+    void fillBoard();
+    void move_selection(int x, int y);
 
-    int _offset_x;
-    int _offset_y;
+private:
     int _end_x;
     int _end_y;
 
-    Rect *_selectionBox = nullptr;
+    int _board[Constants::board_width][Constants::board_height];
+
+    int _selection_x = 3;
+    int _selection_y = 3;
+
+    SDL_Rect _selectionBox;
 };
 
 
