@@ -62,6 +62,6 @@ void Window::handleEvents(SDL_Event &event) {
 
 void Window::clear() {
     SDL_RenderPresent(renderer);
-    SDL_SetRenderDrawColor(renderer, _backgoundColor.r, _backgoundColor.g, _backgoundColor.b, _backgoundColor.a);
+    SDL_SetRenderDrawColor(renderer, _backgroundColor.r, _backgroundColor.g, _backgroundColor.b, _backgroundColor.a);
     SDL_RenderClear(renderer);
 }

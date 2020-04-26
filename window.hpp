@@ -26,7 +26,7 @@ private:
 
     bool _closed = false;
 
-    SDL_Color _backgoundColor{255, 255,255, 255};
+    SDL_Color _backgroundColor{255, 255, 255, 255};
 
     SDL_Window * _window = nullptr;
 };
