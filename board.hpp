@@ -8,7 +8,6 @@
 #include <SDL2/SDL.h>
 #include "constants.hpp"
 #include "window.hpp"
-#include "rect.hpp"
 #include "jewels.hpp"
 
 class Board {

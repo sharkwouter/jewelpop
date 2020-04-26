@@ -1,6 +1,5 @@
 #include "constants.hpp"
 #include "window.hpp"
-#include "rect.hpp"
 #include "board.hpp"
 
 #define GAME "test"
