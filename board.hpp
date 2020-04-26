@@ -2,8 +2,8 @@
 // Created by wouter on 4/25/20.
 //
 
-#ifndef BREAKDOWN_BOARD_HPP
-#define BREAKDOWN_BOARD_HPP
+#ifndef JEWELPOP_BOARD_HPP
+#define JEWELPOP_BOARD_HPP
 
 #include <SDL2/SDL.h>
 #include "constants.hpp"
@@ -36,4 +36,4 @@ private:
 };
 
 
-#endif //BREAKDOWN_BOARD_HPP
+#endif //JEWELPOP_BOARD_HPP

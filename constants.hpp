@@ -2,8 +2,8 @@
 // Created by wouter on 4/26/20.
 //
 
-#ifndef BREAKDOWN_CONSTANTS_HPP
-#define BREAKDOWN_CONSTANTS_HPP
+#ifndef JEWELPOP_CONSTANTS_HPP
+#define JEWELPOP_CONSTANTS_HPP
 
 namespace Constants {
     static int screen_width = 480;
@@ -15,4 +15,4 @@ namespace Constants {
     static int offset_x = offset_y;
 }
 
-#endif //BREAKDOWN_CONSTANTS_HPP
+#endif //JEWELPOP_CONSTANTS_HPP

@@ -1,5 +1,5 @@
-#ifndef BREAKDOWN_WINDOW_H
-#define BREAKDOWN_WINDOW_H
+#ifndef JEWELPOP_WINDOW_H
+#define JEWELPOP_WINDOW_H
 
 #include <string>
 #include <SDL2/SDL.h>
@@ -31,4 +31,4 @@ private:
     SDL_Window * _window = nullptr;
 };
 
-#endif //BREAKDOWN_WINDOW_H
+#endif //JEWELPOP_WINDOW_H

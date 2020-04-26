@@ -2,8 +2,8 @@
 // Created by wouter on 4/26/20.
 //
 
-#ifndef BREAKDOWN_JEWELS_HPP
-#define BREAKDOWN_JEWELS_HPP
+#ifndef JEWELPOP_JEWELS_HPP
+#define JEWELPOP_JEWELS_HPP
 
 namespace Jewels {
     enum type {
@@ -15,4 +15,4 @@ namespace Jewels {
     };
 }
 
-#endif //BREAKDOWN_JEWELS_HPP
+#endif //JEWELPOP_JEWELS_HPP
