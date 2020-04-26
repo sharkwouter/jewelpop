@@ -2,7 +2,7 @@
 #include "window.hpp"
 #include "board.hpp"
 
-#define GAME "test"
+#define GAME "Jewelpop"
 
 #ifdef __PSP__
 #include <pspkernel.h>
