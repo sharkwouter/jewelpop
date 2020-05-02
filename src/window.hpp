@@ -29,6 +29,8 @@ private:
     SDL_Color _backgroundColor{255, 255, 255, 255};
 
     SDL_Window * _window = nullptr;
+
+    SDL_Joystick *_joystick = nullptr;
 };
 
 #endif //JEWELPOP_WINDOW_H

@@ -29,7 +29,8 @@ Board::~Board() {
 }
 
 void Board::handleEvents(SDL_Event &event) {
-    if (event.type == SDL_KEYDOWN) {
+    switch (event.type) {
+        case SDL_KEYDOWN:
         switch (event.key.keysym.sym) {
             case SDLK_UP:
                 move_selection(0, -1);
@@ -44,6 +45,26 @@ void Board::handleEvents(SDL_Event &event) {
                 move_selection(1, 0);
                 break;
         }
+        break;
+        case SDL_JOYBUTTONDOWN:
+            //This case if for the PSP
+            switch (event.jbutton.button) {
+            case 6: //down
+                move_selection(0, 1);
+                break;
+            case 7: //left
+                move_selection(-1, 0);
+                break;
+            case 8: //up
+                move_selection(0, -1);
+                break;
+            case 9: //right
+                move_selection(1, 0);
+                break;
+            default:
+                break;
+        }
+        break;
     }
 
     _selectionBox.x = _selection_x * Constants::blockSize + Constants::offset_x + 1;

@@ -9,14 +9,17 @@ _title(title), _width(width), _height(height)
 }
 
 Window::~Window() {
+    if(_joystick != nullptr) {
+        SDL_JoystickClose(_joystick);
+    }
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(_window);
     SDL_Quit();
 }
 
 bool Window::init() {
-
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+    SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "1");
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) != 0) {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to initialize initialize SDL. Error: %s", SDL_GetError());
         return false;
     }
@@ -40,6 +43,12 @@ bool Window::init() {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to initialize renderer. Error: %s", SDL_GetError());
         return false;
     }
+
+#ifdef __PSP__
+    if (SDL_NumJoysticks() > 0) {
+        _joystick = SDL_JoystickOpen(0);
+    }
+#endif
 
     return true;
 }
