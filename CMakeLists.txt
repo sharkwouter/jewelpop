@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(Jewelpop)
 
-add_executable(jewelpop main.cpp window.cpp board.cpp constants.hpp jewels.hpp)
+add_executable(jewelpop src/main.cpp src/window.cpp src/board.cpp src/constants.hpp src/jewels.hpp)
 target_link_libraries(jewelpop PRIVATE -lSDL2main -lSDL2)
 
 IF(PLATFORM_PSP)
