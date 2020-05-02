@@ -11,5 +11,6 @@ IF(PLATFORM_PSP)
             ICON_PATH NULL
             BACKGROUND_PATH NULL
             PREVIEW_PATH NULL
+            TITLE Jewelpop
     )
 ENDIF()
