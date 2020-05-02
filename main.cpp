@@ -1,13 +1,9 @@
+#include <SDL2/SDL.h>
 #include "constants.hpp"
 #include "window.hpp"
 #include "board.hpp"
 
-#define GAME "Jewelpop"
 
-#ifdef __PSP__
-#include <pspkernel.h>
-PSP_MODULE_INFO(GAME, 0, 1, 1);
-#endif
 
 void handleEvents(Window &window, Board &board) {
     SDL_Event event;
@@ -18,18 +14,28 @@ void handleEvents(Window &window, Board &board) {
     }
 }
 
-int main(int argc, char const *argv[])
-{
+int gameLoop(int argc, char *argv[]) {
     Window window(GAME, Constants::screen_width, Constants::screen_height);
     Board board = Board();
 
     //Main loop
-    while (!window.isClosed())
-    {
+    while (!window.isClosed()) {
         handleEvents(window, board);
         board.draw();
         window.clear();
     }
-    
     return 0;
 }
+
+#ifdef __PSP__
+extern "C"
+{
+    int SDL_main(int argc, char *argv[]) {
+        return gameLoop(argc, argv);
+    }
+}
+#else
+int main(int argc, char *argv[]) {
+    return gameLoop(argc, argv);
+}
+#endif

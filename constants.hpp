@@ -5,6 +5,8 @@
 #ifndef JEWELPOP_CONSTANTS_HPP
 #define JEWELPOP_CONSTANTS_HPP
 
+#define GAME "Jewelpop"
+
 namespace Constants {
     static int screen_width = 480;
     static int screen_height = 272;
